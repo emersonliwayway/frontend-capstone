@@ -1,11 +1,42 @@
-# Frontend Template
+# Capstone Frontend
 
-You can use this repository as a template for your frontend. It provides a very simple
-React Router layout with a navbar, an `AuthContext` with login and register pages, and an
-`ApiContext` with two custom hooks: `useQuery` and `useMutation`.
+## Project Overview
 
-## Usage
+The goal of this project is to create a site where people can post ideas, tag them based on their categoy, and bookmark ideas on their account to come back to later. The idea is that this will exist as a catch for all the throw away thoughts we have that others may be looking for.
 
-1. Change the name of the package in `package.json`.
-2. Update the environment variables in `example.env` and rename the file to `.env`.
-3. Build components and add routes to them in `App.jsx`.
+Some inspirations for the UI and design of the site are Pinterest, Twitter, and Reddit.
+
+## Core Features
+
+- Users can scroll through a feed of posts without an account
+- Users can generate a random idea without an account
+- Users can make an account
+- Users can save posts via bookmarks with an account
+- Users can post new ideas with an account
+- Users can search for specific posts via tags
+
+## Stretch goals
+
+- Users can generate a random idea within a given tag group
+- Users can comment on posts
+- Search function also works with post text
+- Users can organize bookmarks via folders in their account
+
+## Architecture - Frontend
+
+The frontend is currently structured into three folders: account, posts, and tags. Each folder will include components that are reused on the main feed, which is the main page of the app. Future iterations will have a search section implemented as well, which will likely have a page of itself depending on the scope.
+
+## Current Progress
+
+The front end is in its beginning stages of development, where there is minimal to no styling and simple functionality. As of right now, the feed feature is fully implemented for users/non-users. Other features are still in development.
+
+## Resources
+
+React Popup/Modal
+
+- https://www.geeksforgeeks.org/reactjs/how-to-create-popup-box-in-reactjs/
+- https://demo.mobiscroll.com/react/popup/showing-the-popover#
+
+React Autosuggest
+
+- https://mui.com/material-ui/react-autocomplete/#search-input
