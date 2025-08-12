@@ -1,7 +1,7 @@
 import useMutation from "../api/useMutation";
 import Modal from "react-modal";
 import { useState } from "react";
-import CreatePostTags from "../tags/CreatePostTags";
+import AddTags from "../tags/AddTags";
 
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ export default function CreatePost() {
               ></textarea>
             </label>
             <label>Add tags</label>
-            <CreatePostTags />
+            <AddTags />
             <button type="submit">Post</button>
           </form>
         </Modal>

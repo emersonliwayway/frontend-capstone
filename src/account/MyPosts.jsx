@@ -1,4 +1,3 @@
-import Post from "../posts/Post";
 import useQuery from "../api/useQuery";
 import DeletePost from "../posts/DeletePost";
 
@@ -13,7 +12,8 @@ export default function MyPosts() {
         posts &&
         posts.map((post) => (
           <div key={post.id}>
-            <Post post={post} />
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
             <DeletePost post={post} />
           </div>
         ))
