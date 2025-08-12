@@ -1,14 +1,19 @@
 import useMutation from "../api/useMutation";
 
 export default function CreateBookmark({ post }) {
-  const handleClick = () => {
-    // triggers mutation
+  const {
+    mutate: createBookmark,
+    loading,
+    error,
+  } = useMutation("POST", "/bookmarks", ["bookmarks"]);
+
+  const onCreate = () => {
+    const post_id = post.id;
+    createBookmark({ post_id });
   };
   return (
     <>
-      <button onClick={() => console.log(`bookmark ${post.id}`)}>
-        Bookmark
-      </button>
+      <button onClick={onCreate}>Bookmark</button>
     </>
   );
 }
