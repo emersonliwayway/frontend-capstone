@@ -2,9 +2,12 @@ import useMutation from "../api/useMutation";
 import Modal from "react-modal";
 import { useState } from "react";
 import AddTags from "../tags/AddTags";
+import TagSearch from "../tags/TagSearch";
 
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectValue, setSelectValue] = useState();
+  console.log(selectValue);
 
   const {
     mutate: createPost,
@@ -27,11 +30,18 @@ export default function CreatePost() {
     const timestamp = new Date();
     const title = FormData.get("title");
     const body = FormData.get("body");
+    const post_tags = [selectValue];
 
-    createPost({ title, body, timestamp });
+    createPost({ title, body, timestamp, post_tags });
 
     setIsOpen(false);
+    setSelectValue();
   };
+
+  const handleSelectValue = (e) => {
+    setSelectValue(e);
+  };
+  console.log(selectValue);
 
   return (
     <>
@@ -58,7 +68,9 @@ export default function CreatePost() {
               ></textarea>
             </label>
             <label>Add tags</label>
-            <AddTags />
+            <AddTags handleSelectValue={handleSelectValue} />
+
+            <TagSearch />
             <button type="submit">Post</button>
           </form>
         </Modal>

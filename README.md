@@ -49,3 +49,9 @@ React Autosuggest
 - https://mui.com/material-ui/react-autocomplete/#search-input
 
 https://dev.to/wlytle/implementing-a-searchable-async-dropdown-in-react-5hce
+
+React Searchbar
+https://builtin.com/articles/react-search-bar
+
+https://mui.com/material-ui/getting-started/installation/
+https://mui.com/material-ui/customization/typography/
