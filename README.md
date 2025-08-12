@@ -26,6 +26,13 @@ Some inspirations for the UI and design of the site are Pinterest, Twitter, and 
 
 The frontend is currently structured into three folders: account, posts, and tags. Each folder will include components that are reused on the main feed, which is the main page of the app. Future iterations will have a search section implemented as well, which will likely have a page of itself depending on the scope.
 
+## Tech Stack
+
+In addition to React.js, React DOM and React Router, which we have used in all of our projects, this is a list of other components used in this project:
+
+- React Modal - https://reactcommunity.org/react-modal/
+- React Select - https://react-select.com/home#getting-started
+
 ## Current Progress
 
 The front end is in its beginning stages of development, where there is minimal to no styling and simple functionality. As of right now, the feed feature is fully implemented for users/non-users. Other features are still in development.
@@ -40,3 +47,5 @@ React Popup/Modal
 React Autosuggest
 
 - https://mui.com/material-ui/react-autocomplete/#search-input
+
+https://dev.to/wlytle/implementing-a-searchable-async-dropdown-in-react-5hce
