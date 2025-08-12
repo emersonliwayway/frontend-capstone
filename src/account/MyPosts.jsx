@@ -2,7 +2,7 @@ import useQuery from "../api/useQuery";
 import DeletePost from "../posts/DeletePost";
 
 export default function MyPosts() {
-  const { data: posts, loading, error } = useQuery("/users/posts", "posts");
+  const { data: posts, loading, error } = useQuery("/users/posts", ["posts"]);
   return (
     <>
       <h1>My Posts</h1>
