@@ -1,55 +1,37 @@
-import Tags from "../tags/Tags";
 import useQuery from "../api/useQuery";
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+
 import { useAuth } from "../auth/AuthContext";
 import CreateBookmark from "../account/CreateBookmark";
-import Button from "@mui/material/Button";
+import Tags from "../tags/Tags";
+import DeletePost from "./DeletePost";
+import DeleteBookmark from "../account/DeleteBookmark";
 
-export default function Post({ post }) {
+export default function Post({ post, user }) {
+  const { token } = useAuth();
+
   const {
     data: tags,
     loading,
     error,
   } = useQuery(`/posts/${post.id}/tags`, "tags");
+  if (loading || !tags) return <p>Loading...</p>;
+  if (error) return <p>Sorry! {error}</p>;
 
-  const { token } = useAuth();
   //
   return (
     <>
-      <Card
-        variant="outlined"
-        key={post.id}
-        sx={{ maxWidth: 360 }}
-        className="card"
-      >
-        <CardContent>
-          <Stack>
-            <Typography variant="h6" component="div">
-              {post.title}
-            </Typography>
-            <Typography variant="body2" noWrap="true">
-              {post.body}
-            </Typography>
-          </Stack>
-          <Divider />
-          <Stack
-            direction="row"
-            sx={{ justifyContent: "space-between", alignItems: "center" }}
-          >
-            {tags && tags.length === 0 ? (
-              <Typography>No tags...</Typography>
-            ) : (
-              tags && <Tags tags={tags} />
-            )}
-            {token && <CreateBookmark post={post} />}
-          </Stack>
-        </CardContent>
-      </Card>
+      <article className="postCard">
+        <h4>{post.title}</h4>
+        <p>{post.body}</p>
+
+        {tags && tags.length === 0 ? (
+          <p>No tags...</p>
+        ) : (
+          tags && <Tags tags={tags} />
+        )}
+        <div className="actions"></div>
+        {token && <CreateBookmark post={post} />}
+      </article>
     </>
   );
 }

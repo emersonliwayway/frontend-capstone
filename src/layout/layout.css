@@ -1,7 +1,6 @@
-/* header {
+header {
   display: flex;
   align-items: baseline;
-  border: 1px solid black;
   font-size: large;
   justify-content: space-between;
 }
@@ -10,4 +9,4 @@ header nav {
   display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
-} */
+}

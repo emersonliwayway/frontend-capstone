@@ -2,37 +2,27 @@ import useQuery from "../api/useQuery";
 import Post from "./Post";
 import { useAuth } from "../auth/AuthContext";
 import CreatePost from "./CreatePost";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import PostForm from "./PostForm";
+import Search from "./Search";
+import { useState } from "react";
 
 export default function Feed() {
-  const { data: posts, loading, error } = useQuery("/posts", "posts");
   const { token } = useAuth();
+  const [searchResults, setSearchResults] = useState();
 
+  const { data: posts, loading, error } = useQuery("/posts", "posts");
   if (loading || !posts) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
 
   return (
     <>
-      <Box>
-        {token && (
-          <div id="newPost">
-            {/* <CreatePost /> */}
-            <PostForm />
-          </div>
-        )}
-      </Box>
-      <Box>
-        <Grid container spacing={1}>
-          {posts.map((post) => (
-            <Grid key={post.id} size="auto">
-              <Post post={post} />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <div className="search">{/* <Search /> */}</div>
+      <div className="postForm">{token && <CreatePost />}</div>
+
+      <div className="feed">
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
     </>
   );
 }

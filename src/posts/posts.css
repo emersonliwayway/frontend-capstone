@@ -1,14 +1,22 @@
-/* .postForm {
+/* .feed {
+  display: grid
+} */
+
+.postForm {
   display: inline-flex;
   flex-direction: column;
 }
 
-.postForm label {
-  display: flex;
+label {
+  display: inline-flex;
   flex-direction: column;
 }
 
-.formModal {
-  border: 1px solid black;
+.postCard {
+  border: 1px solid lightgrey;
+  width: 50%;
+  height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 10px;
 }
-

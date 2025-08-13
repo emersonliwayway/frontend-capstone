@@ -1,6 +1,10 @@
 import useQuery from "../api/useQuery";
+import Chip from "@mui/material/Chip";
+import { useState } from "react";
 
 export default function TagList({ input, handleSelectValue }) {
+  const [searchResults, setSearchResults] = useState([]);
+
   const { data: tags, loading, error } = useQuery("/tags", "tags");
   if (loading || !tags) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
@@ -17,8 +21,11 @@ export default function TagList({ input, handleSelectValue }) {
     <>
       <ul>
         {filteredTags.map((tag) => (
-          <li key={tag.id} onClick={() => handleSelectValue(tag)}>
-            {tag.name}
+          <li key={tag.id} id={tag.id}>
+            <Chip
+              onClick={() => handleSelectValue(tag.id)}
+              label={tag.name}
+            ></Chip>
           </li>
         ))}
       </ul>

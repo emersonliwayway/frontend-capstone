@@ -1,9 +1,7 @@
 import { NavLink } from "react-router";
 import { useNavigate } from "react-router";
 import { useAuth } from "../auth/AuthContext";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import Search from "../posts/Search";
 
 export default function Navbar() {
   const { token, logout } = useAuth();
@@ -11,15 +9,7 @@ export default function Navbar() {
 
   return (
     <header id="navbar">
-      <Box>
-        <Stack direction="row">
-          <Button>Home</Button>
-          <Button>About</Button>
-          <Button>Random</Button>
-          <Button>Login</Button>
-        </Stack>
-      </Box>
-      {/* <nav id="left">
+      <nav id="left">
         <NavLink id="home" to="/">
           <p>Home</p>
         </NavLink>
@@ -45,7 +35,7 @@ export default function Navbar() {
             Log in
           </NavLink>
         )}
-      </nav> */}
+      </nav>
     </header>
   );
 }

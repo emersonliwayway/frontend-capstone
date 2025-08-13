@@ -2,12 +2,13 @@ import useMutation from "../api/useMutation";
 import Modal from "react-modal";
 import { useState } from "react";
 import AddTags from "../tags/AddTags";
-import TagSearch from "../tags/TagSearch";
-// import Modal from "@mui/material/Modal";
+import TagList from "../tags/TagList";
+import Chip from "@mui/material/Chip";
+import useQuery from "../api/useQuery";
 
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectValue, setSelectValue] = useState();
+  const [selectValue, setSelectValue] = useState([]);
 
   const {
     mutate: createPost,
@@ -20,13 +21,24 @@ export default function CreatePost() {
   }
   function close() {
     setIsOpen(false);
+    setSelectValue([]);
   }
 
-  const handleSubmit = (FormData) => {
-    if (loading || error) {
-      if (error) console.log(error);
-      return;
+  const handleSelectValue = (e) => {
+    if (!selectValue.includes(e)) {
+      selectValue.push(...[e]);
+      setSelectValue(selectValue);
+      console.log(selectValue);
     }
+  };
+
+  // const handleDeleteValue = (e) => {
+  //   const index = selectValue.indexOf(e);
+  //   selectValue.splice(index, 1);
+  //   setSelectValue(selectValue);
+  // };
+
+  const handleSubmit = (FormData) => {
     const timestamp = new Date();
     const title = FormData.get("title");
     const body = FormData.get("body");
@@ -37,10 +49,7 @@ export default function CreatePost() {
     setIsOpen(false);
     setSelectValue();
   };
-
-  const handleSelectValue = (e) => {
-    setSelectValue(e);
-  };
+  console.log(selectValue);
 
   return (
     <>
@@ -67,12 +76,7 @@ export default function CreatePost() {
               ></textarea>
             </label>
             <label>Add tags</label>
-            {/* <AddTags handleSelectValue={handleSelectValue} />
-            <div>
-              <p>{selectValue}</p>
-            </div> */}
-
-            <TagSearch />
+            <AddTags handleSelectValue={handleSelectValue} />
             <button type="submit">Post</button>
           </form>
         </Modal>

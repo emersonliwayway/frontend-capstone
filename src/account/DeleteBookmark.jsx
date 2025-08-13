@@ -5,7 +5,7 @@ export default function DeleteBookmark({ bookmark }) {
     mutate: deleteBookmark,
     loading,
     error,
-  } = useMutation("DELETE", `/bookmarks/${bookmark.id}`);
+  } = useMutation("DELETE", `/bookmarks/${bookmark.id}`, ["bookmarks"]);
 
   const onDelete = () => {
     const id = bookmark.id;

@@ -2,8 +2,6 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 
 export default function Tags({ tags }) {
-  const handleClick = () => {};
-
   return (
     <>
       <div>
