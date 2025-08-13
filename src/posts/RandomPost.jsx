@@ -1,25 +1,23 @@
-import useQuery from "../api/useQuery";
 import { useState } from "react";
+import Post from "./Post";
+import { API } from "../api/ApiContext";
 
 export default function RandomPost() {
   const [randomPost, setRandomPost] = useState();
-  const [isClicked, setIsClicked] = useState(false);
-
-  const { data: post, loading, error } = useQuery("/posts/random", "post");
-
-  if (loading || !post) return <p>Loading...</p>;
-  if (error) return <p>Sorry! {error}</p>;
+  const [isHidden, setIsHidden] = useState(true);
 
   const handleClick = () => {
-    setIsClicked(true);
-    setRandomPost(post);
-    console.log(post);
+    setRandomPost(null);
+    fetch(API + "/posts/random")
+      .then((res) => res.json())
+      .then((post) => setRandomPost(post));
   };
 
   return (
     <>
       <h1>Random Post</h1>
-      <button onClick={() => handleClick()}>Generate</button>
+      <button onClick={handleClick}>Generate</button>
+      {randomPost && <Post post={randomPost} />}
     </>
   );
 }

@@ -1,7 +1,9 @@
 import useQuery from "../api/useQuery";
 import DeleteBookmark from "./DeleteBookmark";
+import { useNavigate } from "react-router";
 
 export default function Bookmarks() {
+  const navigate = useNavigate();
   const {
     data: bookmarks,
     loading,
@@ -18,12 +20,24 @@ export default function Bookmarks() {
       ) : (
         bookmarks &&
         bookmarks.map((e) => (
-          <div key={e.post_id}>
-            <p>Bookmark of Post #{e.id}</p>
-            <DeleteBookmark key={e.id} bookmark={e} />
+          <div key={e.id}>
+            <BookmarkPost id={e.post_id} />
+            <DeleteBookmark key={e.id} bookmark={e.id} />
           </div>
         ))
       )}
+    </>
+  );
+}
+
+export function BookmarkPost({ id }) {
+  const { data: post, loading, error } = useQuery(`/posts/${id}`, "posts");
+  if (loading || !post) return <p>Loading...</p>;
+  if (error) return <p>Sorry! {error}</p>;
+
+  return (
+    <>
+      <div className="postDiv">{post && <h4>{post.title}</h4>}</div>
     </>
   );
 }

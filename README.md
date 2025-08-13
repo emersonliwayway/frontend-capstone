@@ -55,3 +55,6 @@ https://builtin.com/articles/react-search-bar
 
 https://mui.com/material-ui/getting-started/installation/
 https://mui.com/material-ui/customization/typography/
+
+Random Post
+https://www.geeksforgeeks.org/reactjs/how-to-create-a-random-joke-using-react-app-through-api-fetching/

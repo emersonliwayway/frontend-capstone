@@ -7,7 +7,6 @@ import TagSearch from "../tags/TagSearch";
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectValue, setSelectValue] = useState();
-  console.log(selectValue);
 
   const {
     mutate: createPost,
@@ -41,7 +40,6 @@ export default function CreatePost() {
   const handleSelectValue = (e) => {
     setSelectValue(e);
   };
-  console.log(selectValue);
 
   return (
     <>
@@ -69,8 +67,11 @@ export default function CreatePost() {
             </label>
             <label>Add tags</label>
             <AddTags handleSelectValue={handleSelectValue} />
+            <div>
+              <p>{selectValue}</p>
+            </div>
 
-            <TagSearch />
+            {/* <TagSearch /> */}
             <button type="submit">Post</button>
           </form>
         </Modal>

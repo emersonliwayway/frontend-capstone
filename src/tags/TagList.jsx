@@ -17,7 +17,7 @@ export default function TagList({ input, handleSelectValue }) {
     <>
       <ul>
         {filteredTags.map((tag) => (
-          <li key={tag.id} onClick={() => handleSelectValue(tag.id)}>
+          <li key={tag.id} onClick={() => handleSelectValue(tag)}>
             {tag.name}
           </li>
         ))}
