@@ -6,6 +6,7 @@ import Feed from "./posts/Feed";
 import Account from "./account/Account";
 import RandomPost from "./posts/RandomPost";
 import About from "./about/About";
+import TagPosts from "./tags/TagPosts";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/about" element={<About />} />
         <Route path="/posts" element={<Feed />} />
+        <Route path="/tags" element={<TagPosts />} />
         <Route path="/random" element={<RandomPost />} />
       </Route>
     </Routes>

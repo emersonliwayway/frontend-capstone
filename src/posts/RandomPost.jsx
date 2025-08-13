@@ -15,9 +15,12 @@ export default function RandomPost() {
 
   return (
     <>
-      <h1>Random Post</h1>
-      <button onClick={handleClick}>Generate</button>
-      {randomPost && <Post post={randomPost} />}
+      {" "}
+      <div className="page">
+        <h1>Random Post</h1>
+        <button onClick={handleClick}>Generate</button>
+        {randomPost && <Post post={randomPost} />}
+      </div>
     </>
   );
 }

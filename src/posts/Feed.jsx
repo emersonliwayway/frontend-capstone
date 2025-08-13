@@ -2,7 +2,10 @@ import useQuery from "../api/useQuery";
 import Post from "./Post";
 import { useAuth } from "../auth/AuthContext";
 import CreatePost from "./CreatePost";
-import CreateBookmark from "../account/CreateBookmark";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import PostForm from "./PostForm";
 
 export default function Feed() {
   const { data: posts, loading, error } = useQuery("/posts", "posts");
@@ -10,24 +13,26 @@ export default function Feed() {
 
   if (loading || !posts) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
+
   return (
     <>
-      <h1>Feed</h1>
-      {token && (
-        <div id="newPost">
-          <CreatePost />
-        </div>
-      )}
-      {posts.map((post) => (
-        <div key={post.id}>
-          <Post post={post} />
-          {token && (
-            <div className="addBookmark">
-              <CreateBookmark key={post.id} post={post} />
-            </div>
-          )}
-        </div>
-      ))}
+      <Box>
+        {token && (
+          <div id="newPost">
+            {/* <CreatePost /> */}
+            <PostForm />
+          </div>
+        )}
+      </Box>
+      <Box>
+        <Grid container spacing={1}>
+          {posts.map((post) => (
+            <Grid key={post.id} size="auto">
+              <Post post={post} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </>
   );
 }

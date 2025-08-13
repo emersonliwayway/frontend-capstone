@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { useState } from "react";
 import AddTags from "../tags/AddTags";
 import TagSearch from "../tags/TagSearch";
+// import Modal from "@mui/material/Modal";
 
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,12 +67,12 @@ export default function CreatePost() {
               ></textarea>
             </label>
             <label>Add tags</label>
-            <AddTags handleSelectValue={handleSelectValue} />
+            {/* <AddTags handleSelectValue={handleSelectValue} />
             <div>
               <p>{selectValue}</p>
-            </div>
+            </div> */}
 
-            {/* <TagSearch /> */}
+            <TagSearch />
             <button type="submit">Post</button>
           </form>
         </Modal>

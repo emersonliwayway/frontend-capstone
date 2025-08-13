@@ -1,4 +1,6 @@
 import useMutation from "../api/useMutation";
+import IconButton from "@mui/material/IconButton";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 export default function CreateBookmark({ post }) {
   const {
@@ -13,7 +15,9 @@ export default function CreateBookmark({ post }) {
   };
   return (
     <>
-      <button onClick={onCreate}>Bookmark</button>
+      <IconButton onClick={onCreate}>
+        <BookmarkIcon fontSize="large" />
+      </IconButton>
     </>
   );
 }
