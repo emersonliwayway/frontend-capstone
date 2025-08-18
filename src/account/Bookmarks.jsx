@@ -15,17 +15,16 @@ export default function Bookmarks() {
 
   return (
     <>
-      <h1>Bookmarks</h1>
-      {bookmarks && bookmarks.length === 0 ? (
-        <p>No bookmarks yet...</p>
-      ) : (
-        bookmarks &&
-        bookmarks.map((e) => (
-          <div key={e.id}>
-            <BookmarkPost id={e.post_id} bookmark={e.id} />
-          </div>
-        ))
-      )}
+      <div>
+        <h2>Bookmarks</h2>
+        {bookmarks && bookmarks.length === 0 ? (
+          <p>No bookmarks...</p>
+        ) : (
+          bookmarks.map((post) => (
+            <BookmarkPost key={post.id} id={post.post_id} bookmark={post} />
+          ))
+        )}
+      </div>
     </>
   );
 }
@@ -43,15 +42,16 @@ export function BookmarkPost({ id, bookmark }) {
 
   return (
     <>
-      <div className="postDiv">
+      <article>
         {post && tags && (
-          <article className="postCard">
+          <div>
             <h4>{post.title}</h4>
+            <p>{post.body}</p>
             <Tags tags={tags} />
-            <DeleteBookmark key={bookmark.id} bookmark={bookmark} />
-          </article>
+          </div>
         )}
-      </div>
+        <DeleteBookmark bookmark={bookmark} />
+      </article>
     </>
   );
 }

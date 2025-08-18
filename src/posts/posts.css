@@ -13,10 +13,32 @@ label {
 }
 
 .postCard {
-  border: 1px solid lightgrey;
+  /* box-shadow: 1px 1px 1px #5b61b2; */
+  /* border: 1px solid #5b61b2; */
   width: 50%;
   height: inherit;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 10px;
+  background-color: #ffd4f8;
 }
+
+/* 
+#fbf6f2
+#c4ecb0
+#ffd4f8
+#0b1009
+*/
+
+/* 
+#feffff
+#f88dd5
+#582ff5
+#e04541
+*/
+
+/* 
+#f5569b
+#ffcbeb
+#1355b2
+ */

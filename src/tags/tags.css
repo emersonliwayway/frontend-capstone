@@ -1,0 +1,12 @@
+.chipList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.chip {
+  background-color: #c4ecb0;
+  border-radius: 20px;
+  width: auto;
+  padding: 10px;
+}

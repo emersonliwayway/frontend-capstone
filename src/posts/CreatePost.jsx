@@ -1,10 +1,11 @@
 import useMutation from "../api/useMutation";
-import Modal from "react-modal";
 import { useState } from "react";
 import AddTags from "../tags/AddTags";
 import TagList from "../tags/TagList";
 import Chip from "@mui/material/Chip";
 import useQuery from "../api/useQuery";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
 
 export default function CreatePost() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,34 +54,26 @@ export default function CreatePost() {
 
   return (
     <>
-      <button onClick={open}>New post</button>
-      <div className="modalDiv">
-        <Modal
-          isOpen={isOpen}
-          onRequestClose={close}
-          ariaHideApp={false}
-          className="formModal"
-        >
-          <form action={handleSubmit} className="postForm">
-            <label>
-              Title
-              <input type="text" name="title" required />
-            </label>
-            <label>
-              Body
-              <textarea
-                name="body"
-                id="body"
-                required
-                defaultValue="Describe your idea"
-              ></textarea>
-            </label>
-            <label>Add tags</label>
-            <AddTags handleSelectValue={handleSelectValue} />
-            <button type="submit">Post</button>
-          </form>
-        </Modal>
-      </div>
+      <Button onClick={open}>New post</Button>
+
+      <form action={handleSubmit} className="postForm">
+        <label>
+          Title
+          <input type="text" name="title" required />
+        </label>
+        <label>
+          Body
+          <textarea
+            name="body"
+            id="body"
+            required
+            defaultValue="Describe your idea"
+          ></textarea>
+        </label>
+        <label>Add tags</label>
+        <AddTags handleSelectValue={handleSelectValue} />
+        <button type="submit">Post</button>
+      </form>
     </>
   );
 }

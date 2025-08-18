@@ -13,7 +13,7 @@ export default function DeletePost({ post }) {
   };
   return (
     <>
-      <button onClick={onDelete}>Delete post</button>
+      <button onClick={onDelete}>Delete</button>
     </>
   );
 }
