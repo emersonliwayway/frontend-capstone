@@ -1,6 +1,5 @@
 import useQuery from "../api/useQuery";
 import Chip from "@mui/joy/Chip";
-
 import { useState } from "react";
 
 export default function TagList({ input, handleSelectValue }) {

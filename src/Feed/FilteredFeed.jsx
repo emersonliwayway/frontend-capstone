@@ -1,5 +1,5 @@
 import useQuery from "../api/useQuery";
-import Post from "./Post";
+import Post from "../posts/Post";
 
 export default function FilteredFeed({ tag }) {
   const {
