@@ -10,7 +10,7 @@ export default function Navbar() {
     <header id="navbar">
       <nav id="left">
         <NavLink id="home" to="/">
-          <p>Home</p>
+          <p>The Idea Bank</p>
         </NavLink>
         <NavLink id="about" to="/about">
           About
@@ -25,7 +25,7 @@ export default function Navbar() {
             <NavLink id="account" to="/account">
               Account
             </NavLink>
-            <NavLink id="logout" to="/posts" onClick={logout}>
+            <NavLink id="logout" to="/" onClick={logout}>
               Log out
             </NavLink>
           </>

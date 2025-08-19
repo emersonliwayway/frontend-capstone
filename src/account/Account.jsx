@@ -12,11 +12,12 @@ export default function Account() {
 
   return (
     <>
-      <div>
-        <h1>My account</h1>
-        <h3>{user.username}</h3>
+      <div className="accountPage">
+        <h1>Welcome {user.username}!</h1>
         <div>
+          <h2>My Posts</h2>
           <MyPosts />
+          <h2>Bookmarks</h2>
           <Bookmarks />
         </div>
       </div>

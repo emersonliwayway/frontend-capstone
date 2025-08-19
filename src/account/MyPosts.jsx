@@ -12,7 +12,7 @@ export default function MyPosts() {
           <p>No posts yet...</p>
         ) : (
           posts.map((post) => (
-            <article key={post.id}>
+            <article key={post.id} className="myPost">
               <div>
                 <h3>{post.title}</h3>
                 <p>{post.body}</p>

@@ -14,13 +14,13 @@ label {
 
 .postCard {
   /* box-shadow: 1px 1px 1px #5b61b2; */
-  /* border: 1px solid #5b61b2; */
+  border: 1px solid lightgray;
   width: 50%;
   height: inherit;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 10px;
-  background-color: #ffd4f8;
+  /* background-color: #ffd4f8; */
 }
 
 /* 

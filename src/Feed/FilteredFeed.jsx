@@ -11,6 +11,12 @@ export default function FilteredFeed({ tag }) {
   if (error) return <p>Sorry! {error}</p>;
 
   return (
-    <>{posts && posts.map((post) => <Post key={post.id} post={post} />)}</>
+    <>
+      {posts && posts.length === 0 ? (
+        <p>No posts yet...</p>
+      ) : (
+        posts.map((post) => <Post key={post.id} post={post} />)
+      )}
+    </>
   );
 }

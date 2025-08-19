@@ -21,7 +21,7 @@ export function ApiProvider({ children }) {
       ...options,
     });
     const isJson = /json/.test(response.headers.get("Content-Type"));
-    const result = isJson ? await response.json() : await response.text();
+    const result = isJson ? await response.json() : "";
     if (!response.ok) throw Error(result);
     return result;
   };

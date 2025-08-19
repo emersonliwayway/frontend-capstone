@@ -24,8 +24,8 @@ export default function Register() {
   return (
     <>
       <div className="page">
-        <h1>Register for an account</h1>
-        <form action={onRegister}>
+        <h1 className="centerText">Register for an account</h1>
+        <form action={onRegister} className="registerForm">
           <label>
             Username
             <input type="text" name="username" />
@@ -37,7 +37,9 @@ export default function Register() {
           <button>Register</button>
           {error && <output>{error}</output>}
         </form>
-        <Link to="/login">Already have an account? Log in here.</Link>
+        <Link to="/login" className="centerText">
+          Already have an account? Log in here.
+        </Link>
       </div>
     </>
   );

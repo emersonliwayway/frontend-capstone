@@ -5,9 +5,6 @@ import App from "./App.jsx";
 import { AuthProvider } from "./auth/AuthContext.jsx";
 
 import "./index.css";
-import "./posts/posts.css";
-import "./layout/layout.css";
-import "./tags/tags.css";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>

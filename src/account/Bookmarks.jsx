@@ -16,7 +16,6 @@ export default function Bookmarks() {
   return (
     <>
       <div>
-        <h2>Bookmarks</h2>
         {bookmarks && bookmarks.length === 0 ? (
           <p>No bookmarks...</p>
         ) : (
@@ -42,10 +41,10 @@ export function BookmarkPost({ id, bookmark }) {
 
   return (
     <>
-      <article>
+      <article className="bookmarkPost">
         {post && tags && (
           <div>
-            <h4>{post.title}</h4>
+            <h3>{post.title}</h3>
             <p>{post.body}</p>
             <Tags tags={tags} />
           </div>

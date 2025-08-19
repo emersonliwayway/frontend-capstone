@@ -24,8 +24,8 @@ export default function Login() {
   return (
     <>
       <div className="page">
-        <h1>Log in to your account</h1>
-        <form action={onLogin}>
+        <h1 className="centerText">Log in to your account</h1>
+        <form action={onLogin} className="loginForm">
           <label>
             Username
             <input type="username" name="username" required />
@@ -37,7 +37,9 @@ export default function Login() {
           <button>Login</button>
           {error && <output>{error}</output>}
         </form>
-        <Link to="/register">Need an account? Register here.</Link>
+        <Link to="/register" className="centerText">
+          Need an account? Register here.
+        </Link>
       </div>
     </>
   );
